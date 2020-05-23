@@ -9,12 +9,12 @@
     "blog_name": "Coding Thunder",
     "tag_line": "Heaven For Programmers",
     "gmail-user": "rajsinghabhay54@gmail.com",
-    "gmail-password": "samiconductor",
+    "gmail-password": "your_password",
     "about_text": "Hi My Name is Abhay Raj and i am created ths website using help of bootstrap for front-end and flask for backhand",
     "no_of_posts": 2,
     "login_image": "tree.webp",
     "admin_user": "Abhay",
-    "admin_password": "Abhay@1707",
+    "admin_password": "1234",
     "uplode_location": "C:\\Users\\ABHAY RAJ\\PycharmProject\\flaskbackhand\\static"
   }
 }
