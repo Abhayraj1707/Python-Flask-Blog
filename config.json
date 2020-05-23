@@ -2,7 +2,7 @@
   "parmas": {
     "local_server": "True",
     "local_uri": "mysql://root:@localhost/codingthunder",
-    "prod_uri": "mysql://root:@localhost/codingthunder",
+    "prod_uri": " postgres://iozsvrvjjbqxqh:f7df65264e48dc540dc7b5f2b78fd0baef97099d6214720c02cdab3859c8fb37@ec2-34-195-169-25.compute-1.amazonaws.com:5432/d9pm65srpndq4r",
     "fb_url": "https://facebook.com/codingthunder",
     "tw_url": "https://twitter.com/codingthunder",
     "gh_url": "https://github.com/codingthunder",

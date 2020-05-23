@@ -12,7 +12,7 @@ import os
 with open("config.json",'r') as c:
     parmas = json.load(c)["parmas"]
 
-local_server = True
+local_server = False
 app = Flask(__name__)
 app.secret_key = 'super-secret-key'
 app.config['UPLOAD_FOLDER'] = parmas['uplode_location']
@@ -32,21 +32,38 @@ else:
 db = SQLAlchemy(app)
 
 class Contacts(db.Model):
+    __tablename__ = 'contacts'
     sno = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80),nullable=False)
-    slug = db.Column(db.String(21), nullable=False)
-    content = db.Column(db.String(120), nullable=False)
-    date = db.Column(db.String(12), nullable=True)
-    img_file = db.Column(db.String(12), nullable=True)
+    name = db.Column(db.String(80), nullable=False)
+    phone_no = db.Column(db.String(100), nullable=False)
+    msg = db.Column(db.Text(), nullable=False)
+    date = db.Column(db.String(100), nullable=True)
+    email = db.Column(db.String(100), nullable=False)
+
+    def __init__(self, name, phone_no, msg, email, date):
+        self.name = name
+        self.phone_no = phone_no
+        self.msg = msg
+        self.date = date
+        self.email = email
 
 class Posts(db.Model):
+    __tablename__ = 'posts'
     sno = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80),nullable=False)
-    slug = db.Column(db.String(21), nullable=False)
-    content = db.Column(db.String(120), nullable=False)
-    tagline = db.Column(db.String(120), nullable=False)
-    date = db.Column(db.String(12), nullable=True)
-    img_file = db.Column(db.String(12), nullable=True)
+    title = db.Column(db.String(80), nullable=False)
+    slug = db.Column(db.String(100), nullable=False)
+    content = db.Column(db.Text(), nullable=False)
+    date = db.Column(db.String(120), nullable=True)
+    tagline = db.Column(db.String(100), nullable=False)
+    img_file = db.Column(db.String(100), nullable=True)
+
+    def __init__(self, title, slug, content, date, tagline, img_file):
+        self.title = title
+        self.slug = slug
+        self.content = content
+        self.date = date
+        self.tagline = tagline
+        self.img_file = img_file
 
 
 
@@ -69,10 +86,6 @@ def home():
     else:
         prev = "/?page=" + str(page - 1)
         next = "/?page=" + str(page + 1)
-
-
-
-
 
     return render_template('index.html', parmas=parmas,posts=posts,prev=prev,next=next)
 
@@ -165,15 +178,16 @@ def contact():
         entry = Contacts(name=name, phone_no=phone, msg=message, date=datetime.now(), email=email)
         db.session.add(entry)
         db.session.commit()
-        mail.send_message("New msg from "+name,
-                           sender=email,
-                           recipients=[parmas['gmail-user']],
-                           body=message+"\n"+phone
-                          )
+        try:
+            mail.send_message('New message from ' + name,
+                              sender=email,
+                              recipients=[parmas['gmail-user']],
+                              body=message + "\n" + phone
+                              )
+        except Exception as e:
+            print("Invalid Credentials")
+        return render_template('contact.html', parmas=parmas)
 
 
-
-    return render_template('contact.html', parmas=parmas)
-
-
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug = True)
