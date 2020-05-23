@@ -1,0 +1,27 @@
+{
+  "parmas": {
+    "local_server": "True",
+    "local_uri": "mysql://root:@localhost/codingthunder",
+    "prod_uri": "mysql://root:@localhost/codingthunder",
+    "fb_url": "https://facebook.com/codingthunder",
+    "tw_url": "https://twitter.com/codingthunder",
+    "gh_url": "https://github.com/codingthunder",
+    "blog_name": "Coding Thunder",
+    "tag_line": "Heaven For Programmers",
+    "gmail-user": "rajsinghabhay54@gmail.com",
+    "gmail-password": "samiconductor",
+    "about_text": "Hi My Name is Abhay Raj and i am created ths website using help of bootstrap for front-end and flask for backhand",
+    "no_of_posts": 2,
+    "login_image": "tree.webp",
+    "admin_user": "Abhay",
+    "admin_password": "Abhay@1707",
+    "uplode_location": "C:\\Users\\ABHAY RAJ\\PycharmProject\\flaskbackhand\\static"
+  }
+}
+
+
+
+
+
+
+
