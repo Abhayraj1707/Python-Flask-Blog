@@ -186,7 +186,7 @@ def contact():
                               )
         except Exception as e:
             print("Invalid Credentials")
-        return render_template('contact.html', parmas=parmas)
+    return render_template('contact.html', parmas=parmas)
 
 
 if __name__ == '__main__':
