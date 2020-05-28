@@ -50,11 +50,11 @@ class Contacts(db.Model):
 class Posts(db.Model):
     __tablename__ = 'posts'
     sno = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80), nullable=False)
+    title = db.Column(db.String(120), nullable=False)
     slug = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text(), nullable=False)
     date = db.Column(db.String(120), nullable=True)
-    tagline = db.Column(db.String(100), nullable=False)
+    tagline = db.Column(db.Text(), nullable=False)
     img_file = db.Column(db.String(100), nullable=True)
 
     def __init__(self, title, slug, content, date, tagline, img_file):
