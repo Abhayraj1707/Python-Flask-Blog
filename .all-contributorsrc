@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "av1shek",
+      "name": "Abhishek Pratap Singh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/59140024?v=4",
+      "profile": "https://github.com/av1shek",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "Python-Flask-Blog",
+  "projectOwner": "Abhayraj1707",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
